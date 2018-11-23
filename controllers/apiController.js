@@ -13,7 +13,7 @@ module.exports = function (app) {
                 throw err;
                 console.log(err);
             }
-            res.send(orders[orders.length - 1]);
+            res.send(orders);
         })
     });
 
@@ -40,7 +40,7 @@ module.exports = function (app) {
         else {
             var newOrder = Orders({
                 username: 'test',
-                num_order: req.body.order.num_order,
+                num_order: req.body.order.num_order || null,
                 date_order: req.body.order.date_order
             });
             newOrder.save(function (err) {
