@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var port = process.env.PORT || 3001;
 var mongoose = require('mongoose');
+var path=require('path');
 var config = require('./config');
 var appController = require('./controllers/apiController');
 //var setupContrller = require('./controllers/setupController');
@@ -47,4 +48,11 @@ app.use(function (req, res, next) {
 //service
 //setupContrller(app);
 appController(app);
+app.use(express.static('proj/build'));
+
+ // Express serve up index.html file if it doesn't recognize route
+ app.get('*', (req, res) => {
+   console.log(__dirname)
+   res.sendFile(path.resolve(__dirname + '/proj/build/index.html'))
+ });
 app.listen(port, () => console.log(`server runnig at ${port}`));
