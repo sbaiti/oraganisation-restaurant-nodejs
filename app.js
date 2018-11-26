@@ -10,8 +10,6 @@ var appController = require('./controllers/apiController');
 
 app.use('/assets', express.static(__dirname + '/public'));
 
-app.set('view engine', 'ejs');
-
 
 //connection 
 mongoose.connect(config.getDbConnectionString(), { useNewUrlParser: true })
@@ -49,7 +47,6 @@ app.use(function (req, res, next) {
 //setupContrller(app);
 appController(app);
 app.use(express.static('proj/build'));
-
  // Express serve up index.html file if it doesn't recognize route
  app.get('*', (req, res) => {
    console.log(__dirname)
