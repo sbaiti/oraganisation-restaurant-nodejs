@@ -55,4 +55,13 @@ module.exports = function (app) {
             res.send('Success')
         });
     });
+
+    app.delete('/api/orders/delete/:id',function(req,res){
+        var id = req.params.id;
+        Orders.deleteOne({_id:id.slice(1)},function(err){
+            if (err) throw err;
+            else
+            console.log('success');
+        });
+    })
 }
