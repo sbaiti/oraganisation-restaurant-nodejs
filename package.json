@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "engines":{
-"node":"8.11.1"
+  "engines": {
+    "node": "8.11.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node app.js",
+    "start": "node app.js",
     "heroku-postbuild": "cd proj && npm install && npm run build"
   },
   "author": "sbaiti zouhaier",
